@@ -1,32 +1,23 @@
 export const initialState = {
-  home: 'HELLO REDUX',
-  about: 'VERSION 1.0.0'
+  home: "HELLO REDUX",
+  about: "VERSION 1.0.0",
+  counter: 0,
 };
 
 const reducer = (state, action) => {
   switch (action.type) {
-    case "SEARCH":
-    //     return {
-    //       ...state,
-    //       hotels: state.hotels.filter((x) => x.name === action.value),
-    //     };
-    //   case "RESET":
-    //     return {
-    //       ...state,
-    //       hotels: state.searchedHotels,
-    //     };
-    //   case "DELETE_HOTEL":
-    //     const index = state.hotels.findIndex((hotel) => hotel.id === action.id);
-    //     let newHotels = [...state.hotels];
-    //     if (index >= 0) {
-    //       newHotels.splice(index, 1);
-    //     } else {
-    //       console.warn("Can't remove Hotel, as It's not in the List");
-    //     }
-    //     return {
-    //       ...state,
-    //       hotels: newHotels,
-    //     };
+    case "ADD":
+      console.log(state.counter, "ADDING");
+      return {
+        ...state,
+        counter: state.counter+1,
+      };
+    case "DECREMENT":
+      console.log(state.counter, "DECREMENTING");
+      return {
+        ...state,
+        counter: state.counter-1,
+      };
     default:
       return state;
   }
