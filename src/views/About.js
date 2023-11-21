@@ -1,10 +1,12 @@
 import React from "react";
+import { useStateValue } from "../StateProvider";
 
 function About() {
+  const [{ about }] = useStateValue();
   return (
     <div className="App">
       <div className="App-header">
-        <h1>Version 1.0.0</h1>
+        <h1>{about}</h1>
       </div>
     </div>
   );

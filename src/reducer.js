@@ -1,5 +1,6 @@
 export const initialState = {
-  hotels: [],
+  home: 'HELLO REDUX',
+  about: 'VERSION 1.0.0'
 };
 
 const reducer = (state, action) => {

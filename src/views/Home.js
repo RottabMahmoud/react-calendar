@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { useStateValue } from "../StateProvider";
 
 function Home() {
+  const [{ home }] = useStateValue();
+
   return (
     <div className="App">
       <div className="App-header">
-        <h1>HELLO WORLD</h1>
+        <h1>{home}</h1>
       </div>
     </div>
   );
