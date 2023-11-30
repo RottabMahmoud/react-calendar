@@ -1,12 +1,13 @@
-// import React, { useState, useEffect } from "react";
 import React from "react";
-// import { useStateValue } from "../StateProvider";
-import EventCalendar from "../components/EventCalendar";
+import CalendarInfo from "../components/CalendarInfo";
 
 function Home() {
-  // const [{ home, counter }, dispatch] = useStateValue();
-
-  return <EventCalendar />;
+  return (
+    <div>
+      Hello
+      <CalendarInfo />
+    </div>
+  );
 }
 
 export default Home;
