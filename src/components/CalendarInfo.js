@@ -1,14 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import moment from "moment";
-import { Calendar, momentLocalizer } from "react-big-calendar";
+import { Calendar, momentLocalizer, Views } from "react-big-calendar";
 import "react-big-calendar/lib/css/react-big-calendar.css";
-import { GetInitialEvents } from "../reducer";
+// import { GetInitialEvents } from "../reducer";
 import Details from "./Details";
+import localForage from "localforage";
 
 import { useStateValue } from "../StateProvider";
 
 const localizer = momentLocalizer(moment);
-// let allViews = Object.keys(Calendar.Views).map((k) => Calendar.Views[k]);
+let allViews = Object.keys(Views).map((k) => Views[k]);
+console.log(allViews, "MISSION");
 
 const CalendarInfo = () => {
   const [{ allEvents }, dispatch] = useStateValue();
@@ -19,7 +21,25 @@ const CalendarInfo = () => {
   const [eventInfo, setEventInfo] = useState({});
 
   useEffect(() => {
-    dispatch(GetInitialEvents());
+    var allEvents = [
+      {
+        id: 0,
+        title: "Hello!",
+        allDay: true,
+        start: new Date(moment()),
+        end: new Date(moment()),
+        hexColor: "black",
+        notes: "Have a great day!",
+      },
+    ];
+    localForage.getItem("AllEvents", function (err, allEve) {
+      if (allEve) {
+        allEvents = allEve;
+      } else {
+        localForage.setItem("AllEvents", allEvents);
+      }
+    });
+    dispatch({ type: "ALL_EVENTS", allEvents });
   }, [dispatch]);
 
   const handleHide = () => {
@@ -87,7 +107,7 @@ const CalendarInfo = () => {
         wish to update or delete!
       </div>
       <Details
-        showModal={showModal}
+        modalShow={showModal}
         handleHide={handleHide}
         eventType={eventType}
         eventInfo={eventInfo}
@@ -100,7 +120,7 @@ const CalendarInfo = () => {
         localizer={localizer}
         selectable
         events={allEvents}
-        // views={allViews}
+        views={allViews}
         step={60}
         showMultiDayTimes
         defaultDate={new Date(moment())}

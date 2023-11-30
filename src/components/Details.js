@@ -3,45 +3,44 @@ import { Modal, Button } from "react-bootstrap";
 import moment from "moment";
 import Datetime from "react-datetime";
 import "../css/datetime.css";
-
-const Details = (props) => {
-  const [showModal, setShowModal] = useState(props.showModal);
+// var Datetime = require('react-datetime');
+const Details = ({
+  modalShow,
+  handleHide,
+  eventType,
+  eventInfo,
+  newIndex,
+  deleteEvent,
+  addEvent,
+  updateEvent,
+}) => {
+  const [showModal, setShowModal] = useState(modalShow);
   const [eventDetail, setEventDetail] = useState({
-    id: props.eventType === "add" ? props.newIndex : props.eventInfo.id,
-    title:
-      props.eventInfo && props.eventInfo.title ? props.eventInfo.title : "",
-    start:
-      props.eventInfo && props.eventInfo.start
-        ? props.eventInfo.start
-        : moment(),
-    end:
-      props.eventInfo && props.eventInfo.end ? props.eventInfo.end : moment(),
-    allDay: props.eventInfo.allDay ? true : false,
-    hexColor: props.eventInfo.hexColor ? props.eventInfo.hexColor : "#265985",
-    notes: props.eventInfo.notes ? props.eventInfo.notes : "",
+    id: eventType === "add" ? newIndex : eventInfo.id,
+    title: eventInfo && eventInfo.title ? eventInfo.title : "",
+    start: new Date(eventInfo && eventInfo.start ? eventInfo.start : moment()),
+    end: new Date(eventInfo && eventInfo.end ? eventInfo.end : moment()),
+    allDay: eventInfo.allDay ? true : false,
+    hexColor: "#265985",
+    notes: eventInfo.notes ? eventInfo.notes : "",
   });
 
   useEffect(() => {
-    setShowModal(props.showModal);
+    setShowModal(modalShow);
     setEventDetail({
-      id: props.eventType === "add" ? props.newIndex : props.eventInfo.id,
-      title:
-        props.eventInfo && props.eventInfo.title ? props.eventInfo.title : "",
+      id: eventType === "add" ? newIndex : eventInfo.id,
+      title: eventInfo && eventInfo.title ? eventInfo.title : "",
       start: new Date(
-        props.eventInfo && props.eventInfo.start
-          ? props.eventInfo.start
-          : moment()
+        eventInfo && eventInfo.start ? eventInfo.start : moment()
       ),
-      end: new Date(
-        props.eventInfo && props.eventInfo.end ? props.eventInfo.end : moment()
-      ),
-      allDay: props.eventInfo.allDay ? true : false,
-      hexColor: props.eventInfo.hexColor ? props.eventInfo.hexColor : "#265985",
-      notes: props.eventInfo.notes ? props.eventInfo.notes : "",
+      end: new Date(eventInfo && eventInfo.end ? eventInfo.end : moment()),
+      allDay: eventInfo.allDay ? true : false,
+      hexColor: eventInfo.hexColor ? eventInfo.hexColor : "#265985",
+      notes: eventInfo.notes ? eventInfo.notes : "",
     });
-  }, [props]);
-
+  }, []);
   const changeHandler = (e, ref) => {
+    var eventDetail = eventDetail;
     let val = "";
     if (ref !== "allDay") {
       if (ref === "start" || ref === "end") {
@@ -53,14 +52,12 @@ const Details = (props) => {
       val = e.target.checked;
     }
 
-    setEventDetail((prevEventDetail) => ({
-      ...prevEventDetail,
-      [ref]: val,
-    }));
+    eventDetail[ref] = val;
+    setEventDetail(eventDetail);
   };
 
   return (
-    <Modal show={showModal} onHide={props.handleHide}>
+    <Modal show={showModal} onHide={handleHide}>
       <Modal.Header closeButton>
         <Modal.Title id="contained-modal-title">Event Details</Modal.Title>
       </Modal.Header>
@@ -132,27 +129,21 @@ const Details = (props) => {
         <label> All Day </label>
       </Modal.Body>
       <Modal.Footer>
-        {props.eventType === "add" ? (
-          <Button bsStyle="success" onClick={() => props.addEvent(eventDetail)}>
+        {eventType === "add" ? (
+          <Button bsStyle="success" onClick={() => addEvent(eventDetail)}>
             Add
           </Button>
         ) : (
-          <Button
-            bsStyle="warning"
-            onClick={() => props.updateEvent(eventDetail)}
-          >
+          <Button bsStyle="warning" onClick={() => updateEvent(eventDetail)}>
             Update
           </Button>
         )}
-        {props.eventType === "add" ? null : (
-          <Button
-            bsStyle="danger"
-            onClick={() => props.deleteEvent(eventDetail.id)}
-          >
+        {eventType === "add" ? null : (
+          <Button bsStyle="danger" onClick={() => deleteEvent(eventDetail.id)}>
             Delete
           </Button>
         )}
-        <Button onClick={props.handleHide}>Close</Button>
+        <Button onClick={handleHide}>Close</Button>
       </Modal.Footer>
     </Modal>
   );
