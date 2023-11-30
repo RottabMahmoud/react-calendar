@@ -1,6 +1,6 @@
 export const initialState = {
   home: "HELLO REDUX",
-  about: "VERSION 1.0.0",
+  about: "React Calendar",
   counter: 0,
 };
 
