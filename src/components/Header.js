@@ -4,7 +4,8 @@ import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import { Link } from "react-router-dom";
-import logo from "../logos/logo.svg";
+
+import logo from "../logos/logo.png"
 
 import HomeIcon from "@mui/icons-material/Home";
 import { Assignment } from "@mui/icons-material";
@@ -29,6 +30,7 @@ export default function Header() {
                 backgroundColor: "white",
                 borderRadius: "100%",
               }}
+              className="App-logo"
               alt="Mahmoud Rottab"
               src={logo}
             />
