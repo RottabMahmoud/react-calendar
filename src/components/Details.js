@@ -1,10 +1,14 @@
 import React, { useState, useEffect } from "react";
-import Button from 'react-bootstrap/Button';
-import Modal from 'react-bootstrap/Modal';
-import moment from "moment";
-import Datetime from "react-datetime";
 import "../css/datetime.css";
-// var Datetime = require('react-datetime');
+import moment from "moment";
+import Modal from "react-bootstrap/Modal";
+import Datetime from "react-datetime";
+import Button from "react-bootstrap/Button";
+
+// Here are all the Imports need to procceed with React hooks in a functional component as well as the rest of libraries.
+
+
+// Below we have the Details functional Component Instatiated with all the props passed, to handle events and data.
 const Details = ({
   modalShow,
   handleHide,
@@ -25,7 +29,7 @@ const Details = ({
     hexColor: "#265985",
     notes: eventInfo.notes ? eventInfo.notes : "",
   });
-
+  // Here are the 2 states needed for showing the modal upon even selection to edit, add, or delete an event.
   useEffect(() => {
     setShowModal(modalShow);
     setEventDetail({
@@ -40,6 +44,11 @@ const Details = ({
       notes: eventInfo.notes ? eventInfo.notes : "",
     });
   }, [eventInfo, eventType, modalShow, newIndex]);
+
+  // UseEffect Life cycle hook to set the modal with the given props, as well as setting the event detail, with
+  // the data entry.
+
+  // Here is the change Handlerfunction that handles whether we want to add, delete, or delete an event.
   const changeHandler = (e, ref) => {
     var eventD = eventDetail;
     let val = "";
@@ -54,9 +63,11 @@ const Details = ({
     }
 
     eventDetail[ref] = val;
-    setEventDetail({...eventD});
+    setEventDetail({ ...eventD });
   };
 
+// Here we are going to render some JSX based upon the task logic, to show a modal having some data entry fields,
+// to do certain functionality such as edit, add, or delete a new event to our app.
   return (
     <Modal show={showModal} onHide={handleHide}>
       <Modal.Header closeButton>
@@ -129,20 +140,22 @@ const Details = ({
       </Modal.Body>
       <Modal.Footer>
         {eventType === "add" ? (
-          <Button bsStyle="success" onClick={() => addEvent(eventDetail)}>
+          <Button variant="primary" onClick={() => addEvent(eventDetail)}>
             Add
           </Button>
         ) : (
-          <Button bsStyle="warning" onClick={() => updateEvent(eventDetail)}>
+          <Button variant="secondary" onClick={() => updateEvent(eventDetail)}>
             Update
           </Button>
         )}
         {eventType === "add" ? null : (
-          <Button bsStyle="danger" onClick={() => deleteEvent(eventDetail.id)}>
+          <Button variant="danger" onClick={() => deleteEvent(eventDetail.id)}>
             Delete
           </Button>
         )}
-        <Button onClick={handleHide}>Close</Button>
+        <Button variant="dark" onClick={handleHide}>
+          Close
+        </Button>
       </Modal.Footer>
     </Modal>
   );

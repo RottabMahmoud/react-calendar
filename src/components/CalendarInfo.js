@@ -108,11 +108,10 @@ const CalendarInfo = () => {
     <div className="bodyContainer">
       <div className="well well-sm">
         <h3 className="instruction">Instructions</h3>
-        <strong>To add an event: </strong> Click on the day you want to add an
-        event or drag up to the day you want to add the event for multiple day
-        event! <br />
-        <strong>To update and delete an event:</strong> Click on the event you
-        wish to update or delete!
+        <strong>For adding an event: </strong> Select the desired day, or drag
+        up to choose the day for a multi-day event. <br />
+        <strong>For updating or deleting an event: </strong> Click on the event
+        you want to modify or remove.
       </div>
       <Details
         modalShow={showModal}
