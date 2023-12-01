@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import moment from "moment";
 import { Calendar, momentLocalizer, Views } from "react-big-calendar";
 import "react-big-calendar/lib/css/react-big-calendar.css";
@@ -108,10 +108,10 @@ const CalendarInfo = () => {
       </div>
       <Details
         modalShow={showModal}
-        handleHide={handleHide}
         eventType={eventType}
         eventInfo={eventInfo}
         newIndex={newIndex}
+        handleHide={handleHide}
         deleteEvent={deleteEvent}
         addEvent={addEvent}
         updateEvent={updateEvent}

@@ -38,9 +38,9 @@ const Details = ({
       hexColor: eventInfo.hexColor ? eventInfo.hexColor : "#265985",
       notes: eventInfo.notes ? eventInfo.notes : "",
     });
-  }, []);
+  }, [eventInfo, eventType, modalShow, newIndex]);
   const changeHandler = (e, ref) => {
-    var eventDetail = eventDetail;
+    var eventD = eventDetail;
     let val = "";
     if (ref !== "allDay") {
       if (ref === "start" || ref === "end") {
@@ -53,7 +53,7 @@ const Details = ({
     }
 
     eventDetail[ref] = val;
-    setEventDetail(eventDetail);
+    setEventDetail({...eventD});
   };
 
   return (
@@ -67,7 +67,6 @@ const Details = ({
           type="text"
           className="form-control"
           placeholder="Enter the Event Name"
-          ref="title"
           value={eventDetail.title}
           onChange={(e) => changeHandler(e, "title")}
         />
@@ -106,7 +105,6 @@ const Details = ({
         <textarea
           className="form-control"
           placeholder="Event Notes"
-          ref="notes"
           value={eventDetail.notes}
           onChange={(e) => changeHandler(e, "notes")}
         />
