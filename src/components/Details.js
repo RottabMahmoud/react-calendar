@@ -7,7 +7,6 @@ import Button from "react-bootstrap/Button";
 
 // Here are all the Imports need to procceed with React hooks in a functional component as well as the rest of libraries.
 
-
 // Below we have the Details functional Component Instatiated with all the props passed, to handle events and data.
 const Details = ({
   modalShow,
@@ -66,19 +65,19 @@ const Details = ({
     setEventDetail({ ...eventD });
   };
 
-// Here we are going to render some JSX based upon the task logic, to show a modal having some data entry fields,
-// to do certain functionality such as edit, add, or delete a new event to our app.
+  // Here we are going to render some JSX based upon the task logic, to show a modal having some data entry fields,
+  // to do certain functionality such as edit, add, or delete a new event to our app.
   return (
     <Modal show={showModal} onHide={handleHide}>
       <Modal.Header closeButton>
         <Modal.Title id="contained-modal-title">Event Details</Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <label> Event Name </label>
+        <label> Title</label>
         <input
           type="text"
           className="form-control"
-          placeholder="Enter the Event Name"
+          placeholder="Enter the Event Title"
           value={eventDetail.title}
           onChange={(e) => changeHandler(e, "title")}
         />
@@ -113,15 +112,15 @@ const Details = ({
           />
         )}
 
-        <label> Event Notes </label>
+        <label> Description </label>
         <textarea
           className="form-control"
-          placeholder="Event Notes"
+          placeholder="Event Description"
           value={eventDetail.notes}
           onChange={(e) => changeHandler(e, "notes")}
         />
 
-        <label> Event Color </label>
+        <label> Color </label>
         <input
           type="color"
           value={eventDetail.hexColor}

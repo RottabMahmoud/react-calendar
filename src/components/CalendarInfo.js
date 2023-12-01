@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import moment from "moment";
 import { Calendar, momentLocalizer, Views } from "react-big-calendar";
 import "react-big-calendar/lib/css/react-big-calendar.css";
-// import { GetInitialEvents } from "../reducer";
 import Details from "./Details";
 import localForage from "localforage";
 
@@ -10,7 +9,6 @@ import { useStateValue } from "../StateProvider";
 
 const localizer = momentLocalizer(moment);
 let allViews = Object.keys(Views).map((k) => Views[k]);
-console.log(allViews, "MISSION");
 
 const CalendarInfo = () => {
   const [{ allEvents }, dispatch] = useStateValue();
