@@ -103,6 +103,9 @@ tr {
 .rbc-date-cell {
   height: 1px;
 }
+.rbc-event {
+  border-radius: 1em !important;
+}
 
 .rbc-day-bg + .rbc-day-bg,
 .rbc-month-row + .rbc-month-row {
@@ -115,7 +118,7 @@ tr {
 }
 
 .rbc-month-view {
-  border-radius: 10px;
+  /* border-radius: 10px; */
 }
 
 .rbc-btn-group {
