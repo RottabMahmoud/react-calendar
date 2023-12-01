@@ -21,24 +21,32 @@ const CalendarInfo = () => {
   const [eventInfo, setEventInfo] = useState({});
 
   useEffect(() => {
-    var allEvents = [
-      {
-        id: 0,
-        title: "Hello!",
-        allDay: true,
-        start: new Date(moment()),
-        end: new Date(moment()),
-        hexColor: "black",
-        notes: "Have a great day!",
-      },
-    ];
-    localForage.getItem("AllEvents", function (err, allEve) {
-      if (allEve) {
-        allEvents = allEve;
-      } else {
-        localForage.setItem("AllEvents", allEvents);
-      }
-    });
+    const getInitialEvents = async () => {
+      var allEvents = [
+        {
+          id: 0,
+          title: "Today!",
+          allDay: true,
+          start: new Date(moment()),
+          end: new Date(moment()),
+          hexColor: "#265985",
+          notes: "Have a great day!",
+        },
+      ];
+
+      localForage.getItem("AllEvents", function (err, allEve) {
+        if (allEve) {
+          allEvents = allEve;
+        } else {
+          localForage.setItem("AllEvents", allEvents);
+        }
+
+        dispatch({ type: "ALL_EVENTS", allEvents });
+      });
+    };
+
+    getInitialEvents();
+
     dispatch({ type: "ALL_EVENTS", allEvents });
   }, [dispatch]);
 
