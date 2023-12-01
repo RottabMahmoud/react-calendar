@@ -104,8 +104,8 @@ const CalendarInfo = () => {
 
   return (
     <div className="bodyContainer">
-      <div className="well well-sm">
-        <h3 className="instruction">Instructions</h3>
+      <div className="App App-header well well-sm">
+        <h5 className="instruction">Instructions</h5>
         <strong>For adding an event: </strong> Select the desired day, or drag
         up to choose the day for a multi-day event. <br />
         <strong>For updating or deleting an event: </strong> Click on the event
@@ -131,7 +131,7 @@ const CalendarInfo = () => {
         defaultDate={new Date(moment())}
         onSelectEvent={(event) => handleShow(event, "edit")}
         onSelectSlot={(slotInfo) => handleShow(slotInfo, "add")}
-        style={{ minHeight: "500px" }}
+        style={{ marginTop: "1em", minHeight: "500px" }}
         eventPropGetter={eventStyle}
       />
     </div>

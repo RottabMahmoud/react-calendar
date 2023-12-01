@@ -2,6 +2,7 @@ import localForage from "localforage";
 
 export const initialState = {
   allEvents: [], // our state/ have only events, that will be shown in out UI
+  about: "React Calendar V1.0.0" // About Page statement
 };
 
 // Our reducer and all actions below.

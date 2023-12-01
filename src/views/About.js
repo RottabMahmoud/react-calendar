@@ -4,10 +4,8 @@ import { useStateValue } from "../StateProvider";
 function About() {
   const [{ about }] = useStateValue();
   return (
-    <div className="App">
-      <div className="App-header">
-        <h1>{about}</h1>
-      </div>
+    <div className="About">
+      <h1>{about}</h1>
     </div>
   );
 }
