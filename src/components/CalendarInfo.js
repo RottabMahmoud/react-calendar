@@ -1,23 +1,31 @@
 import React, { useState, useEffect } from "react";
+import { useStateValue } from "../StateProvider";
 import moment from "moment";
-import { Calendar, momentLocalizer, Views } from "react-big-calendar";
+import localForage from "localforage";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import Details from "./Details";
-import localForage from "localforage";
+import { Calendar, momentLocalizer, Views } from "react-big-calendar";
+// All Mandatory Imports
 
-import { useStateValue } from "../StateProvider";
-
+// The localizer is needed for applying formatting and culture (i18n) to your date displays throughout the Calendar.
 const localizer = momentLocalizer(moment);
+
+// The Calendar Views, exporting the array from the object, array of KEYS
 let allViews = Object.keys(Views).map((k) => Views[k]);
 
 const CalendarInfo = () => {
+  // using the useStateValue to have access to our reducer, and dispatch events as well.
   const [{ allEvents }, dispatch] = useStateValue();
 
+  // Our states that are going to be used during the render and pass to Details.js Component.
   const [showModal, setShowModal] = useState(false);
   const [eventType, setEventType] = useState("add");
   const [newIndex, setNewIndex] = useState(0);
   const [eventInfo, setEventInfo] = useState({});
 
+  // The useEffect life Cycle is called to getInitialEvents, using localForage to have the data persist upon refresh
+  // localForage is a JavaScript library that uses the very simple localStorage API.
+  // Also we dispatch an action which fetches ALL Events.
   useEffect(() => {
     const getInitialEvents = async () => {
       var allEvents = [
@@ -45,13 +53,15 @@ const CalendarInfo = () => {
 
     getInitialEvents();
 
-    dispatch({ type: "ALL_EVENTS", allEvents });
-  }, [dispatch]);
+    // dispatch({ type: "ALL_EVENTS", allEvents });
+  }, [dispatch, allEvents]);
 
+  // To Close the Modal
   const handleHide = () => {
     setShowModal(false);
   };
 
+  // To Show the Modal
   const handleShow = (slotInfo, type) => {
     const currentIndex = allEvents.length;
     setShowModal(true);
@@ -60,6 +70,7 @@ const CalendarInfo = () => {
     setNewIndex(currentIndex);
   };
 
+  // To Delete an Event, we dispatch an action and pass the ID as out payload.
   const deleteEvent = (id) => {
     dispatch({
       type: "REMOVE_EVENT",
@@ -68,6 +79,7 @@ const CalendarInfo = () => {
     setShowModal(false);
   };
 
+  // To Add an Event, we call the action and pass the new obj as our payload.
   const addEvent = (obj) => {
     dispatch({
       type: "ADD_EVENT",
@@ -76,6 +88,7 @@ const CalendarInfo = () => {
     setShowModal(false);
   };
 
+  // to Update an existing event, we pass the updated object as our payload and search for it using the Object ID.
   const updateEvent = (obj) => {
     dispatch({
       type: "UPDATE_EVENT",
@@ -87,21 +100,21 @@ const CalendarInfo = () => {
     setShowModal(false);
   };
 
-  const eventStyle = (event, start, end, isSelected) => {
+  // Some Prop Stylings for our BIG Calendar.
+  const eventStyle = (event) => {
     const bgColor = event.hexColor ? event.hexColor : "#265985";
     const style = {
       backgroundColor: bgColor,
-      borderRadius: "5px",
+      borderRadius: "10em",
       opacity: 1,
       color: "white",
-      border: "0px",
-      display: "block",
     };
     return {
       style: style,
     };
   };
 
+  // Our JSX Logic
   return (
     <div className="bodyContainer">
       <div className="App App-header well well-sm">

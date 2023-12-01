@@ -100,6 +100,9 @@ tr {
 .rbc-toolbar {
   flex-wrap: wrap-reverse;
 }
+.rbc-date-cell {
+  height: 1px;
+}
 
 .rbc-day-bg + .rbc-day-bg,
 .rbc-month-row + .rbc-month-row {
