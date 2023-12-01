@@ -4,7 +4,6 @@ import CalendarInfo from "../components/CalendarInfo";
 function Home() {
   return (
     <div>
-      Hello
       <CalendarInfo />
     </div>
   );
