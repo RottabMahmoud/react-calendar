@@ -1,4 +1,4 @@
-# iPro Suites Case Study
+# iPro Suite Case Study
 
 ## What the Application does
 
@@ -94,4 +94,4 @@ npm install date-fns@2.30.0 react-big-calendar@1.8.2 react-colorful@5.6.1 @mui/x
 
 ## Badge
 
-<a href="https://www.crealytics.com"> <img src="https://img.shields.io/badge/Mahmoud%20Rottab-Crealytee-red" alt="Crealytee" /> </a>
+<a href="https://www.linkedin.com/company/ipro-suite/"> <img src="https://img.shields.io/badge/iPro%20Suite-Mahmoud%20Rottab-brightgreen?link=https%3A%2F%2Fwww.linkedin.com%2Fcompany%2Fipro-suite%2F" alt="iPro Suite" /> </a>
