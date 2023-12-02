@@ -1,70 +1,97 @@
-# Getting Started with Create React App
+# iPro Suites Case Study
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## What the Application does
 
-## Available Scripts
+- A Calendar web app using React.
+- Full CRUD operation with Calendar Events.
+- Persisting Data upon refresh. (TO be Saved Offline)
 
-In the project directory, you can run:
+## Technologies
 
-### `npm start`
+- JavaScript
+- React
+- React hooks
+- Redux
+- React Router
+- React-Big-Calendar
+- moment
+- Bootstrap
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Some of the challenges I've faced and how I've tackled them
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- To use React-Big-Calendar Library at the first time and go throught the documentation to specify the prop types.
 
-### `npm test`
+## Project Installation
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```bash
+git clone https://github.com/Rottabx/crealytics.git
+cd crealytics
+npm install
+```
 
-### `npm run build`
+## To Start the App
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+npm start
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## For Building
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+npm build
+```
 
-### `npm run eject`
+## Usage
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Used React Big Calendar, LocalForage and moment libraries to ease the Implementation of the Calendar UI.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+npm install moment --save
+npm install react-bootstrap bootstrap
+npm i react-datetime
+npm i localforage
+npm install date-fns@2.30.0 react-big-calendar@1.8.2 react-colorful@5.6.1 @mui/x-date-pickers@5.0.12 @types/react-big-calendar
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Project Hierarchy
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```bash
+  crealytics
+    ├─ public
+    │  ├─ index.html
+    │  ├─ manifest.json
+    ├─ src                   ### root Folder
+    │  ├─ index.js           ### project index
+    │  ├─ components         ### used to group all the project components
+    │  │  ├─ CalendarInfo.js ### Our Calendar Representation
+    │  │  ├─ Details.js      ### Our Events CRUD Modal
+    │  │  ├─ Header.js       ### Our Header to navigate between Home and About Views
+    │  ├─ css                ### Our css Stylings folder
+    │  │  ├─ datetime.css
+    │  ├─ logos              ### Our Logos folder
+    │  │  └─ Logo.png        ### iPro Suites Logo
+    │  ├─ store              ### Our Store/ Redux folder
+    │  │  └─ reducer.js      ### Our reducer
+    │  ├─ views              ### Our Views Folder
+    │  │  ├─ About.js        ### Our About Page
+    │  │  ├─ Home.js         ### Our Home Page, where the CalendarInfo is rendered
+    │  │─ App.css
+    │  │─ App.js
+    │  │─ index.css
+    │  │─ index.js
+    │  │─ reportWebVitals
+    │  │─ StateProvider.js  ### Our StateProvider to wrap the app with Store/ Redux
+    ├─ .gitignore
+    ├─ node_modules
+    ├─ package.json
+    ├─ package-lock.json
+    ├─ README.md
+```
 
-## Learn More
+## License
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+[MIT](https://choosealicense.com/licenses/mit/)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Badge
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<a href="https://www.crealytics.com"> <img src="https://img.shields.io/badge/Mahmoud%20Rottab-Crealytee-red" alt="Crealytee" /> </a>
