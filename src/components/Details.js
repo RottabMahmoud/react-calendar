@@ -75,20 +75,20 @@ const Details = ({
       <Modal.Body>
         <label> Title</label>
         <input
-          type="text"
-          className="form-control"
-          placeholder="Enter the Event Title"
           value={eventDetail.title}
           onChange={(e) => changeHandler(e, "title")}
+          className="form-control"
+          type="text"
+          placeholder="Enter the Event Title"
         />
 
         <label> Start Date </label>
         {eventDetail.allDay ? (
           <Datetime
             value={eventDetail.start}
-            dateFormat="MM-DD-YYYY"
-            timeFormat={false}
             onChange={(e) => changeHandler(e, "start")}
+            timeFormat={false}
+            dateFormat="MM-DD-YYYY"
           />
         ) : (
           <Datetime
@@ -101,9 +101,9 @@ const Details = ({
         {eventDetail.allDay ? (
           <Datetime
             value={eventDetail.end}
+            onChange={(e) => changeHandler(e, "end")}
             dateFormat="MM-DD-YYYY"
             timeFormat={false}
-            onChange={(e) => changeHandler(e, "end")}
           />
         ) : (
           <Datetime
@@ -114,26 +114,26 @@ const Details = ({
 
         <label> Description </label>
         <textarea
-          className="form-control"
-          placeholder="Event Description"
           value={eventDetail.notes}
           onChange={(e) => changeHandler(e, "notes")}
+          className="form-control"
+          placeholder="Event Description"
         />
 
         <label> Color </label>
         <input
-          type="color"
           value={eventDetail.hexColor}
           onChange={(e) => changeHandler(e, "hexColor")}
           style={{ marginRight: "20px", marginLeft: "5px" }}
+          type="color"
         />
 
         <input
-          type="checkBox"
-          name="all_Day"
           value={eventDetail.id}
           checked={eventDetail.allDay}
           onChange={(e) => changeHandler(e, "allDay")}
+          name="all_Day"
+          type="checkBox"
         />
         <label> All Day </label>
       </Modal.Body>

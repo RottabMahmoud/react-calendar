@@ -20,8 +20,8 @@ const CalendarInfo = () => {
   // Our states that are going to be used during the render and pass to Details.js Component.
   const [showModal, setShowModal] = useState(false);
   const [eventType, setEventType] = useState("add");
-  const [newIndex, setNewIndex] = useState(0);
   const [eventInfo, setEventInfo] = useState({});
+  const [newIndex, setNewIndex] = useState(0);
 
   // The useEffect life Cycle is called to getInitialEvents, using localForage to have the data persist upon refresh
   // localForage is a JavaScript library that uses the very simple localStorage API.
@@ -31,7 +31,7 @@ const CalendarInfo = () => {
       var allEvents = [
         {
           id: 0,
-          title: "Today!",
+          title: "iPro Suite!",
           allDay: true,
           start: new Date(moment()),
           end: new Date(moment()),
@@ -118,7 +118,7 @@ const CalendarInfo = () => {
   return (
     <div className="bodyContainer">
       <div className="App App-header well well-sm">
-        <h5 className="instruction">Instructions</h5>
+        <h3 className="instruction">Instructions</h3>
         <strong>For adding an event: </strong> Select the desired day, or drag
         up to choose the day for a multi-day event. <br />
         <strong>For updating or deleting an event: </strong> Click on the event
@@ -136,16 +136,16 @@ const CalendarInfo = () => {
       />
       <Calendar
         localizer={localizer}
-        selectable
-        events={allEvents}
         views={allViews}
-        step={60}
-        showMultiDayTimes
-        defaultDate={new Date(moment())}
+        events={allEvents}
         onSelectEvent={(event) => handleShow(event, "edit")}
         onSelectSlot={(slotInfo) => handleShow(slotInfo, "add")}
-        style={{ marginTop: "1em", minHeight: "500px" }}
         eventPropGetter={eventStyle}
+        defaultDate={new Date(moment())}
+        selectable
+        step={60}
+        showMultiDayTimes
+        style={{ marginTop: "1em", minHeight: "500px" }}
       />
     </div>
   );

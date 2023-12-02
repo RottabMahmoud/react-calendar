@@ -8,7 +8,7 @@ export const initialState = {
 // Our reducer and all actions below.
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
-    // To Fetch All Data
+    // To Set the current state, /Fetch All Data
     case "ALL_EVENTS": //
       return { ...state, allEvents: action.allEvents };
     // TO Delete an Event.
@@ -29,8 +29,8 @@ const reducer = (state = initialState, action = {}) => {
     // To update an event.
     case "UPDATE_EVENT":
       var newState3 = state;
-      newState3.allEvents[action.payload.id] = action.payload.obj;
-      localForage.setItem("AllEvents", newState3.allEvents);
+      newState3.allEvents[action.payload.id] = action.payload.obj; // Set UI
+      localForage.setItem("AllEvents", newState3.allEvents); // Set Local Forage
       return newState3;
     default:
       return state;
