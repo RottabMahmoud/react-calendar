@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import moment from "moment";
 import localForage from "localforage";
 import "react-big-calendar/lib/css/react-big-calendar.css";
-import Details from "./Details";
+import DetailsModal from "./DetailsModal";
 import { Calendar, momentLocalizer, Views } from "react-big-calendar";
 // All Mandatory Imports
 
@@ -17,6 +17,7 @@ let allViews = Object.keys(Views).map((k) => Views[k]);
 const CalendarInfo = () => {
   // using the useStateValue to have access to our reducer, and dispatch events as well.
   const [{ allEvents }, dispatch] = useStateValue();
+
   //  Used useParams for the date, so if existing date typed in the url, it shows the Calendar specified date.
   const { date } = useParams();
   const [defaultDate, setDefaultDate] = useState(
@@ -106,7 +107,7 @@ const CalendarInfo = () => {
         obj: obj,
       },
     });
-    console.log(obj.id, "CONSOLE");
+    // console.log(obj.id, "CONSOLE");
     setShowModal(false);
   };
 
@@ -134,7 +135,7 @@ const CalendarInfo = () => {
         <strong>For updating or deleting an event: </strong> Click on the event
         you want to modify or remove.
       </div>
-      <Details
+      <DetailsModal
         modalShow={showModal}
         eventType={eventType}
         eventInfo={eventInfo}
