@@ -5,6 +5,7 @@ import localForage from "localforage";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import Details from "./Details";
 import { Calendar, momentLocalizer, Views } from "react-big-calendar";
+import { useParams } from "react-router-dom";
 // All Mandatory Imports
 
 // The localizer is needed for applying formatting and culture (i18n) to your date displays throughout the Calendar.
@@ -17,6 +18,12 @@ const CalendarInfo = () => {
   // using the useStateValue to have access to our reducer, and dispatch events as well.
   const [{ allEvents }, dispatch] = useStateValue();
 
+  const { date } = useParams();
+  const [defaultDate, setDefaultDate] = useState(
+    date ? new Date(date) : new Date()
+  );
+  const [initialDateSet, setInitialDateSet] = useState(false);
+
   // Our states that are going to be used during the render and pass to Details.js Component.
   const [showModal, setShowModal] = useState(false);
   const [eventType, setEventType] = useState("add");
@@ -27,6 +34,9 @@ const CalendarInfo = () => {
   // localForage is a JavaScript library that uses the very simple localStorage API.
   // Also we dispatch an action which fetches ALL Events.
   useEffect(() => {
+    if (date) {
+      setDefaultDate(new Date(date));
+    }
     const getInitialEvents = async () => {
       var allEvents = [
         {
@@ -36,7 +46,7 @@ const CalendarInfo = () => {
           start: new Date(moment()),
           end: new Date(moment()),
           hexColor: "#265985",
-          notes: "Have a great day!",
+          notes: "Happy Coding!",
         },
       ];
 
@@ -54,7 +64,7 @@ const CalendarInfo = () => {
     getInitialEvents();
 
     // dispatch({ type: "ALL_EVENTS", allEvents });
-  }, [dispatch, allEvents]);
+  }, [dispatch, allEvents, date]);
 
   // To Close the Modal
   const handleHide = () => {
@@ -141,8 +151,10 @@ const CalendarInfo = () => {
         onSelectEvent={(event) => handleShow(event, "edit")}
         onSelectSlot={(slotInfo) => handleShow(slotInfo, "add")}
         eventPropGetter={eventStyle}
-        defaultDate={new Date(moment())}
+        defaultDate={defaultDate}
         selectable
+        startAccessor="start"
+        endAccessor="end"
         step={60}
         showMultiDayTimes
         style={{ marginTop: "1em", minHeight: "500px" }}
