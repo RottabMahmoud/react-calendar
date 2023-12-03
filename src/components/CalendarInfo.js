@@ -153,12 +153,12 @@ const CalendarInfo = () => {
         onSelectEvent={(event) => handleShow(event, "edit")}
         onSelectSlot={(slotInfo) => handleShow(slotInfo, "add")}
         eventPropGetter={eventStyle}
+        style={{ marginTop: "1em", minHeight: "500px" }}
         selectable
         startAccessor="start"
         endAccessor="end"
         step={60}
         showMultiDayTimes
-        style={{ marginTop: "1em", minHeight: "500px" }}
       />
     </div>
   );
