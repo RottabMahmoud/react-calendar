@@ -19,7 +19,7 @@
   long event.
 - User can use route params in the URL. Example (/calendar/2023-11-21 for November 21, 2023), and after it routes, 
   user need to press on the day view to show the certain day in the route URL.
-- You can use the Header bar in the top to route between Home Page and About Page, the home page shows the calendar 
+- User can use the Header bar in the top to route between Home Page and About Page, the home page shows the calendar 
   and the about page shows the app version.
 
 ## Technologies
