@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useStateValue } from "../StateProvider";
+import { useParams } from "react-router-dom";
 import moment from "moment";
 import localForage from "localforage";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import Details from "./Details";
 import { Calendar, momentLocalizer, Views } from "react-big-calendar";
-import { useParams } from "react-router-dom";
 // All Mandatory Imports
 
 // The localizer is needed for applying formatting and culture (i18n) to your date displays throughout the Calendar.
@@ -17,7 +17,7 @@ let allViews = Object.keys(Views).map((k) => Views[k]);
 const CalendarInfo = () => {
   // using the useStateValue to have access to our reducer, and dispatch events as well.
   const [{ allEvents }, dispatch] = useStateValue();
-
+  //  Used useParams for the date, so if existing date typed in the url, it shows the Calendar specified date.
   const { date } = useParams();
   const [defaultDate, setDefaultDate] = useState(
     date ? new Date(date) : new Date()
@@ -148,10 +148,10 @@ const CalendarInfo = () => {
         localizer={localizer}
         views={allViews}
         events={allEvents}
+        defaultDate={defaultDate}
         onSelectEvent={(event) => handleShow(event, "edit")}
         onSelectSlot={(slotInfo) => handleShow(slotInfo, "add")}
         eventPropGetter={eventStyle}
-        defaultDate={defaultDate}
         selectable
         startAccessor="start"
         endAccessor="end"
