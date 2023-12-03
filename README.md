@@ -38,6 +38,8 @@
 
 - To use React-Big-Calendar Library at the first time, I had to go throught the documentation to specify the prop   
   types.
+- The UI of the Time picker is not working properly on laptop browser, but working perfectly on mobile, after 
+  checking the DateTime picker recent github documentation, found that there is browser issue, and they are working on it. You have to enter the time using the keyboard not the UI time theme picker.
 
 ## Project Installation
 
