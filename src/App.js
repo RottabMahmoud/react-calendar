@@ -1,10 +1,10 @@
-import "./App.css";
+import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Header from "./components/Header";
 import Home from "./views/Home";
 import About from "./views/About";
-import Header from "./components/Header";
-import React from "react";
 import CalendarInfo from "./components/CalendarInfo";
+import "./App.css";
 
 function App() {
   return (
