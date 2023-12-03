@@ -5,10 +5,8 @@ import About from "./views/About";
 import Header from "./components/Header";
 import React from "react";
 import CalendarInfo from "./components/CalendarInfo";
-import { useStateValue } from "./StateProvider";
 
 function App() {
-  const [{ allEvents }] = useStateValue();
   return (
     <Router>
       <Header />

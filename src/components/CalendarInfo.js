@@ -22,7 +22,6 @@ const CalendarInfo = () => {
   const [defaultDate, setDefaultDate] = useState(
     date ? new Date(date) : new Date()
   );
-  const [initialDateSet, setInitialDateSet] = useState(false);
 
   // Our states that are going to be used during the render and pass to Details.js Component.
   const [showModal, setShowModal] = useState(false);
@@ -98,7 +97,7 @@ const CalendarInfo = () => {
     setShowModal(false);
   };
 
-  // to Update an existing event, we pass the updated object as our payload and search for it using the Object ID.
+  // To Update an existing event, we pass the updated object as our payload and search for it using the Object ID.
   const updateEvent = (obj) => {
     dispatch({
       type: "UPDATE_EVENT",
