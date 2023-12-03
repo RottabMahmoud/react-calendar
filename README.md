@@ -24,8 +24,8 @@
 ## Project Installation
 
 ```bash
-git clone https://github.com/Rottabx/crealytics.git
-cd crealytics
+git clone https://github.com/RottabMahmoud/react-calendar.git
+cd react-calendar
 npm install
 ```
 
