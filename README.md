@@ -8,16 +8,19 @@
 
 ## App Usage
 
-- You can reload the page and the data/ events will still persist.
-- You can add an event by clicking over any day and add an event.
-- You can update or delete an existing event upon clicking on an existing Event.
-- You can swap between different views, like Month, Work Week, Week, day views.
-- You can see your Agenda, that represents all events for 1 month starting from the current date.
-- The App is fully responseive and you can use it in any screen as well.
-- You can use route params in the URL. Example (/calendar/2023-11-21 for November 21, 2023)) and after it route 
-  press on day view to show the certain day in the route.
-- You can use the Header to route between Home Page and About Page, the home page shows the calendar and the about 
-  page shows the app version.
+- User can reload the page and the data/ events will still persist.
+- User can add an event by clicking over any day and add an event.
+- User can press and hold, while dragging multiple days to add an event, which will take several days.
+- User can update or delete an existing event upon clicking on an existing Event.
+- User can swap between different views, like Month, Work Week, Week, day views.
+- User can see his/ her agenda, that represents all events for 1 month starting from the current date.
+- The App is fully responseive and user can use it in any screen size as well.
+- On Mobile screen user need to press a long press to add an event, and easily drag up to multiple days to make a 
+  long event.
+- User can use route params in the URL. Example (/calendar/2023-11-21 for November 21, 2023), and after it routes, 
+  user need to press on the day view to show the certain day in the route URL.
+- You can use the Header bar in the top to route between Home Page and About Page, the home page shows the calendar 
+  and the about page shows the app version.
 
 ## Technologies
 
@@ -28,11 +31,13 @@
 - React Router
 - React-Big-Calendar
 - moment
-- Bootstrap
+- Bootstrap/ Material UI
+- React Datetime
 
 ## Some of the challenges I've faced and how I've tackled them
 
-- To use React-Big-Calendar Library at the first time and go throught the documentation to specify the prop types.
+- To use React-Big-Calendar Library at the first time, I had to go throught the documentation to specify the prop   
+  types.
 
 ## Project Installation
 
