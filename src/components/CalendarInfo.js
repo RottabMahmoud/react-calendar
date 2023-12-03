@@ -106,6 +106,7 @@ const CalendarInfo = () => {
         obj: obj,
       },
     });
+    console.log(obj.id, "CONSOLE");
     setShowModal(false);
   };
 

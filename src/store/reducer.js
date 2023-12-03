@@ -2,7 +2,7 @@ import localForage from "localforage";
 
 export const initialState = {
   allEvents: [], // our state/ have only events, that will be shown in out UI
-  about: "React Calendar V1.0.0" // About Page statement
+  about: "React Calendar V1.0.0", // About Page statement
 };
 
 // Our reducer and all actions below.
@@ -28,10 +28,11 @@ const reducer = (state = initialState, action = {}) => {
       return newState2;
     // To update an event.
     case "UPDATE_EVENT":
-      var newState3 = state;
-      newState3.allEvents[action.payload.id] = action.payload.obj; // Set UI
-      localForage.setItem("AllEvents", newState3.allEvents); // Set Local Forage
-      return newState3;
+      const updatedEvents = [...state.allEvents]; // Shallow copy of the events array
+      updatedEvents[action.payload.id] = action.payload.obj; // Update the specific event
+      localForage.setItem("AllEvents", updatedEvents); // Set Local Forage
+      return { ...state, allEvents: updatedEvents }; // Return a new state with updated events
+
     default:
       return state;
   }

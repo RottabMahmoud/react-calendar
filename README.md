@@ -6,6 +6,19 @@
 - Full CRUD operation with Calendar Events.
 - Persisting Data upon refresh. (TO be Saved Offline)
 
+## App Usage
+
+- You can reload the page and the data/ events will still persist.
+- You can add an event by clicking over any day and add an event.
+- You can update or delete an existing event upon clicking on an existing Event.
+- You can swap between different views, like Month, Work Week, Week, day views.
+- You can see your Agenda, that represents all events for 1 month starting from the current date.
+- The App is fully responseive and you can use it in any screen as well.
+- You can use route params in the URL. Example (/calendar/2023-11-21 for November 21, 2023)) and after it route 
+  press on day view to show the certain day in the route.
+- You can use the Header to route between Home Page and About Page, the home page shows the calendar and the about 
+  page shows the app version.
+
 ## Technologies
 
 - JavaScript
