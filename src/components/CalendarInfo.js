@@ -131,7 +131,7 @@ const CalendarInfo = () => {
       <div className="App App-header well well-sm">
         <h3 className="instruction">Instructions</h3>
         <strong>For adding an event: </strong> Select the desired day, or drag
-        up to choose the day for a multi-day event. <br />
+        up to choose the days for a multi-day event. <br />
         <strong>For updating or deleting an event: </strong> Click on the event
         you want to modify or remove.
       </div>
