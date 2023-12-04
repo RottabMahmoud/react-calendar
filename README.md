@@ -15,12 +15,9 @@
 - User can swap between different views, like Month, Work Week, Week, day views.
 - User can see his/ her agenda, that represents all events for 1 month starting from the current date.
 - The App is fully responseive and user can use it in any screen size as well.
-- On Mobile screen user need to press a long press to add an event, and easily drag up to multiple days to make a 
-  long event.
-- User can use route params in the URL. Example (/calendar/2023-11-21 for November 21, 2023), and after it routes, 
-  user need to press on the day view to show the certain day in the route URL.
-- User can use the Header bar in the top to route between Home Page and About Page, the home page shows the   
-  calendar and the about page shows the app version.
+- On Mobile screen user need to press a long press to add an event, and easily drag up to multiple days to make a long event.
+- User can use route params in the URL. Example (/calendar/2023-11-21 for November 21, 2023), and after it routes, user need to press on the day view to show the certain day in the route URL.
+- User can use the Header bar in the top to route between Home Page and About Page, the home page shows the calendar and the about page shows the app version.
 
 ## Technologies
 
@@ -36,10 +33,8 @@
 
 ## Some of the challenges I've faced and how I've tackled them
 
-- To use React-Big-Calendar Library at the first time, I had to go throught the documentation to specify the prop   
-  types.
-- The UI of the Time picker is not working properly on laptop browser, but working perfectly on mobile, after 
-  checking the DateTime picker recent github documentation, found that there is browser issue, and they are working on it. You have to enter the time using the keyboard not the UI time theme picker. So Assume the Time will be entered manually using the keyboard, to add or edit certain times on PC. (The proof that isn't a Code logic Issue, is that the time gets updated on mobile/ or if the user stricly type it using keyboard over PC UI)
+- To use React-Big-Calendar Library at the first time, I had to go throught the documentation to specify the prop types.
+- The UI of the Time picker is not working properly on laptop browser, but working perfectly on mobile, after checking the DateTime picker recent github documentation, found that there is browser issue, and they are working on it. You have to enter the time using the keyboard not the UI time theme picker. So Assume the Time will be entered manually using the keyboard, to add or edit certain times on PC. (The proof that isn't a Code logic Issue, is that the time UI them work perfectly on mobile/ or if the user stricly type it using keyboard over PC UI)
 
 ## Project Installation
 
