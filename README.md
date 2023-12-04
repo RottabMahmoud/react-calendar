@@ -14,7 +14,7 @@
 - User can update or delete an existing event upon clicking on an existing Event.
 - User can swap between different views, like Month, Work Week, Week, day views.
 - User can see his/ her agenda, that represents all events for 1 month starting from the current date.
-- The App is fully responseive and user can use it in any screen size as well.
+- The App is fully responsive and user can use it in any screen size as well.
 - On Mobile screen user need to press a long press to add an event, and easily drag up to multiple days to make a long event.
 - User can use route params in the URL. Example (/calendar/2023-11-21 for November 21, 2023), and after it routes, user need to press on the day view to show the certain day in the route URL.
 - User can use the Header bar in the top to route between Home Page and About Page, the home page shows the calendar and the about page shows the app version.
