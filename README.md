@@ -34,7 +34,7 @@
 ## Some of the challenges I've faced and how I've tackled them
 
 - To use React-Big-Calendar Library at the first time, I had to go throught the documentation to specify the prop types.
-- The UI of the Time picker is not working properly on laptop browser, but working perfectly on mobile, after checking the DateTime picker recent github documentation, found that there is browser issue, and they are working on it. You have to enter the time using the keyboard not the UI time theme picker. So Assume the Time will be entered manually using the keyboard, to add or edit certain times on PC. (The proof that isn't a Code logic Issue, is that the time UI theme work perfectly on mobile/ or if the user stricly type it using keyboard over PC UI)
+- The UI of the Time picker is not working properly on laptop browser, but working perfectly on mobile, after checking the DateTime picker recent github documentation, found that there is browser issue, and they are working on it. You have to enter the time using the keyboard not the UI time theme picker. So Assume the Time will be entered manually using the keyboard, to add or edit certain times on PC. (The proof that isn't a Code logic Issue, is that the time UI theme works perfectly on mobile/ or if the user stricly type it using keyboard over PC UI)
 
 ## Project Installation
 
